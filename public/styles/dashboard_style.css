@@ -1,0 +1,148 @@
+/* General Styles */
+
+* {
+  letter-spacing: 0.5px;
+}
+
+body {
+  background-color: #191919;
+}
+
+.white-text {
+  color: white;
+}
+
+.customcolor {
+  background-color: #3eb489;
+}
+
+.gray-text-color {
+  color: #a7a7a9;
+}
+
+.gray-text-color:hover {
+  color: white;
+}
+
+.container-md {
+  padding-top: 3rem;
+  padding-left: 2rem;
+  margin-bottom: 3rem;
+}
+
+.card {
+  background-color: #191919 !important;
+  border: 1px solid rgba(117, 117, 118, 0.51);
+  box-shadow: 2px 2px 20px rgb(17, 17, 17);
+}
+
+hr {
+  color: #cecece;
+}
+
+/* Navbar Styles */
+
+.navbar {
+  background-color: #191919 !important;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid;
+  box-shadow: 2px 2px 20px rgb(17, 17, 17);
+}
+
+.logo {
+  font-family: "Nova Square", sans-serif;
+  color: white;
+  text-decoration: none;
+  font-size: 18px;
+}
+
+.menudiv {
+  margin-right: 20px;
+}
+
+.buttonmargin {
+  margin-right: 20px;
+}
+
+/* Table Styles */
+
+.dashboard-table {
+  background-color: #151515 !important;
+  border: 2px solid #4d4d4e;
+  border-radius: 4px;
+  box-shadow: 2px 2px 20px rgb(17, 17, 17);
+}
+
+th {
+  border-bottom: 1px solid rgba(117, 117, 118, 0.51);
+
+  padding: 15px 15px 15px 10px;
+}
+
+.table-element {
+  padding: 5px 10px 5px 10px;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.token-title {
+  padding-right: 315px;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+/* Token Table Styles */
+
+.token-details-table {
+  background-color: #151515 !important;
+  border: 2px solid #4d4d4e;
+  border-radius: 4px;
+  box-shadow: 2px 2px 20px rgb(17, 17, 17);
+}
+
+/* Footer Styles */
+
+.social-media-div {
+  margin: 20px 40px 20px 40px;
+}
+
+.social-media-links {
+  padding: 0px 32px 0px 32px;
+}
+
+.social-media-img:hover {
+  opacity: 0.5;
+}
+
+footer {
+  background-color: #151515;
+  padding-bottom: 10px;
+}
+
+.footer-links {
+  text-decoration: none;
+  color: white;
+}
+
+.footer-links-div {
+  margin: 0px 450px 20px 450px;
+}
+
+/* Media Queries  */
+
+@media only screen and (max-width: 768px) {
+  .social-media-links {
+    padding: 0px 10px 0px 10px;
+  }
+
+  .footer-links-div {
+    margin: 0px 100px 0px 100px;
+  }
+
+  .token-title {
+    padding-right: 120px;
+    white-space: nowrap;
+    overflow: hidden;
+  }
+}

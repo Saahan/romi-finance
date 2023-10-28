@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ROMI | Decentralized Perpetual Exchange</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+      crossorigin="anonymous"
+      defer
+    ></script>
+    <script
+      type="text/javascript"
+      src="https://www.gstatic.com/charts/loader.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="public/scripts/script.js"
+      defer
+    ></script>
+    <link rel="stylesheet" href="public/styles/dashboard_style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nova+Square&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <!------------------------------------------------------------ navbar header ------------------------------------------------------------------>
+    <header>
+      <div class="navdiv">
+        <nav class="navbar navbar-expand-lg bg-dark">
+          <div class="container-fluid">
+            <div class="col">
+              <img src="public/images/New Logo.png" height="40px" alt="ROMI" />
+              <a href="#" class="logo">ROMI FINANCE</a>
+            </div>
+
+            <div class="col">
+              <ul class="navbar-nav">
+                <div class="menudiv">
+                  <li class="nav-item">
+                    <a class="nav-link" aria-current="page" href="index.html"
+                      ><span class="gray-text-color">Home</span></a
+                    >
+                  </li>
+                </div>
+                <div class="menudiv">
+                  <li class="nav-item">
+                    <a class="nav-link" href="#"
+                      ><span class="gray-text-color">Dashboard</span></a
+                    >
+                  </li>
+                </div>
+                <div class="menudiv">
+                  <li class="nav-item">
+                    <a class="nav-link" href="earn.html"
+                      ><span class="gray-text-color">Earn</span></a
+                    >
+                  </li>
+                </div>
+              </ul>
+            </div>
+
+            <div class="row">
+              <div class="col">
+                <button class="btn btn-success customcolor buttonmargin">
+                  Trade
+                </button>
+                <button class="btn btn-outline-secondary buttonmargin">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="16"
+                    height="16"
+                    fill="white"
+                    class="bi bi-wallet"
+                    viewBox="0 0 16 16"
+                  >
+                    <path
+                      d="M0 3a2 2 0 0 1 2-2h13.5a.5.5 0 0 1 0 1H15v2a1 1 0 0 1 1 1v8.5a1.5 1.5 0 0 1-1.5 1.5h-12A2.5 2.5 0 0 1 0 12.5V3zm1 1.732V12.5A1.5 1.5 0 0 0 2.5 14h12a.5.5 0 0 0 .5-.5V5H2a1.99 1.99 0 0 1-1-.268zM1 3a1 1 0 0 0 1 1h12V2H2a1 1 0 0 0-1 1z"
+                    />
+                  </svg>
+                  <span class="white-text">Connect Wallet</span>
+                </button>
+                <div
+                  class="btn-group buttonmargin"
+                  role="group"
+                  aria-label="Basic example"
+                >
+                  <button type="button" class="btn btn-outline-secondary">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="16"
+                      height="16"
+                      fill="white"
+                      class="bi bi-compass-fill"
+                      viewBox="0 0 16 16"
+                    >
+                      <path
+                        d="M15.5 8.516a7.5 7.5 0 1 1-9.462-7.24A1 1 0 0 1 7 0h2a1 1 0 0 1 .962 1.276 7.503 7.503 0 0 1 5.538 7.24zm-3.61-3.905L6.94 7.439 4.11 12.39l4.95-2.828 2.828-4.95z"
+                      />
+                    </svg>
+                  </button>
+                  <button type="button" class="btn btn-outline-secondary">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="16"
+                      height="16"
+                      fill="white"
+                      class="bi bi-three-dots-vertical"
+                      viewBox="0 0 16 16"
+                    >
+                      <path
+                        d="M9.5 13a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z"
+                      />
+                    </svg>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </nav>
+      </div>
+    </header>
+    <!------------------------------------------------------------ Stats tables ------------------------------------------------------------------>
+    <div class="container-md">
+      <div>
+        <h1 class="white-text">Stats</h1>
+      </div>
+      <div>
+        <p class="gray-text-color">
+          Ethereum Total Stats start from 06 Jan 2022. <br />
+          For detailed stats:
+        </p>
+      </div>
+      <div class="row">
+        <!------------------------------------------------------------ table1 ----------------------------------------------------------------------->
+        <div class="col-lg-6 col-sm-12">
+          <table class="dashboard-table" width="100%">
+            <th class="white-text">Overview</th>
+            <th></th>
+            <tr>
+              <td class="gray-text-color table-element">AUM</td>
+              <td
+                class="gray-text-color table-element"
+                style="text-align: end; color: white"
+              >
+                $34
+              </td>
+            </tr>
+            <tr>
+              <td class="gray-text-color table-element">$ZLP Pool</td>
+              <td
+                class="gray-text-color table-element"
+                style="text-align: end; color: white"
+              >
+                $34
+              </td>
+            </tr>
+            <tr>
+              <td class="gray-text-color table-element">24h Volume</td>
+              <td
+                class="gray-text-color table-element"
+                style="text-align: end; color: white"
+              >
+                $0
+              </td>
+            </tr>
+            <tr>
+              <td class="gray-text-color table-element">Long Positions</td>
+              <td
+                class="gray-text-color table-element"
+                style="text-align: end; color: white"
+              >
+                $0
+              </td>
+            </tr>
+            <tr>
+              <td class="gray-text-color table-element">Short Positions</td>
+              <td
+                class="gray-text-color table-element"
+                style="text-align: end; color: white"
+              >
+                $0
+              </td>
+            </tr>
+          </table>
+        </div>
+        <!------------------------------------------------------------ table2 --------------------------------------------------------------------->
+        <div class="col-lg-6 col-sm-12">
+          <table class="dashboard-table" width="100%">
+            <th class="white-text">Total Stats</th>
+            <th></th>
+            <tr>
+              <td class="gray-text-color table-element">Total Fees</td>
+              <td
+                class="gray-text-color table-element"
+                style="text-align: end; color: white"
+              >
+                $0
+              </td>
+            </tr>
+            <tr>
+              <td class="gray-text-color table-element">Total Volume</td>
+              <td
+                class="gray-text-color table-element"
+                style="text-align: end; color: white"
+              >
+                $0
+              </td>
+            </tr>
+            <tr>
+              <td class="gray-text-color table-element">Floor Price Fund</td>
+              <td
+                class="gray-text-color table-element"
+                style="text-align: end; color: white"
+              >
+                $629,950
+              </td>
+            </tr>
+            <tr>
+              <td class="gray-text-color table-element">&nbsp</td>
+              <td
+                class="gray-text-color table-element"
+                style="text-align: end; color: white"
+              >
+                &nbsp
+              </td>
+            </tr>
+            <tr>
+              <td class="gray-text-color table-element">&nbsp</td>
+              <td
+                class="gray-text-color table-element"
+                style="text-align: end; color: white"
+              >
+                &nbsp
+              </td>
+            </tr>
+          </table>
+        </div>
+      </div>
+    </div>
+    <!------------------------------------------------------------ Tokens tables ------------------------------------------------------------------>
+    <div class="container-md">
+      <div>
+        <h1 class="white-text">Tokens</h1>
+      </div>
+      <div>
+        <p class="gray-text-color">Platform and $ZLP index tokens.</p>
+      </div>
+      <div class="row">
+        <!------------------------------------------------------------ table1 ----------------------------------------------------------------------->
+        <div class="col-lg-6 col-sm-12">
+          <table class="dashboard-table" width="100%">
+            <th class="white-text">
+              <div class="row">
+                <div class="col token-img">
+                  <img
+                    src="public/images/romi.png"
+                    height="40px"
+                  />
+                </div>
+                <div class="col token-title" style="display: inline">
+                  $ROMI <br />
+                  <span class="gray-text-color" style="font-size: 13px"
+                    >$ROMI</span
+                  >
+                </div>
+              </div>
+            </th>
+            <th></th>
+            <td rowspan="6"><div id="piechart"></div></td>
+            <tr>
+              <td class="gray-text-color table-element">Price</td>
+              <td
+                class="gray-text-color table-element"
+                style="text-align: end; color: white"
+              >
+                $0.00
+              </td>
+            </tr>
+            <tr>
+              <td class="gray-text-color table-element">Supply</td>
+              <td
+                class="gray-text-color table-element"
+                style="text-align: end; color: white"
+              >
+                10,000 $ROMI
+              </td>
+            </tr>
+            <tr>
+              <td class="gray-text-color table-element">Total Staked</td>
+              <td
+                class="gray-text-color table-element"
+                style="text-align: end; color: white"
+              >
+                $0
+              </td>
+            </tr>
+            <tr>
+              <td class="gray-text-color table-element">Market Cap</td>
+              <td
+                class="gray-text-color table-element"
+                style="text-align: end; color: white"
+              >
+                $10
+              </td>
+            </tr>
+            <tr>
+              <td class="gray-text-color table-element">&nbsp</td>
+              <td
+                class="gray-text-color table-element"
+                style="text-align: end; color: white"
+              >
+                &nbsp
+              </td>
+            </tr>
+          </table>
+        </div>
+        <!------------------------------------------------------------ table2 --------------------------------------------------------------------->
+        <div class="col-lg-6 col-sm-12">
+          <table class="dashboard-table" width="100%">
+            <th class="white-text">
+              <div class="row">
+                <div class="col token-img">
+                  <img
+                    src="public/images/zlp.png"
+                    height="40px"
+                  />
+                </div>
+                <div class="col token-title">
+                  $ZLP <br />
+                  <span class="gray-text-color" style="font-size: 13px"
+                    >$ZLP</span
+                  >
+                </div>
+              </div>
+            </th>
+            <th></th>
+            <td rowspan="6"><div id="piechart2"></div></td>
+            <tr>
+              <td class="gray-text-color table-element">Price</td>
+              <td
+                class="gray-text-color table-element"
+                style="text-align: end; color: white"
+              >
+                $1.133
+              </td>
+            </tr>
+            <tr>
+              <td class="gray-text-color table-element">Supply</td>
+              <td
+                class="gray-text-color table-element"
+                style="text-align: end; color: white"
+              >
+                29 $ZLP
+              </td>
+            </tr>
+            <tr>
+              <td class="gray-text-color table-element">Total Staked</td>
+              <td
+                class="gray-text-color table-element"
+                style="text-align: end; color: white"
+              >
+                $33
+              </td>
+            </tr>
+            <tr>
+              <td class="gray-text-color table-element">Market Cap</td>
+              <td
+                class="gray-text-color table-element"
+                style="text-align: end; color: white"
+              >
+                $33
+              </td>
+            </tr>
+            <tr>
+              <td class="gray-text-color table-element">
+                Stablecoin Perentage
+              </td>
+              <td
+                class="gray-text-color table-element"
+                style="text-align: end; color: white"
+              >
+                49.50%
+              </td>
+            </tr>
+          </table>
+        </div>
+      </div>
+    </div>
+    <!------------------------------------------------------------ token details ------------------------------------------------------------------>
+    <div class="container-md">
+      <table class="token-details-table" width="100%">
+        <tr>
+          <th class="white-text">$ZLP Index Composition</th>
+          <th></th>
+          <th></th>
+          <th></th>
+          <th></th>
+        </tr>
+        <tr>
+          <td class="gray-text-color">TOKEN</td>
+          <td class="gray-text-color">PRICE</td>
+          <td class="gray-text-color">POOL</td>
+          <td class="gray-text-color">WEIGHT</td>
+          <td class="gray-text-color" style="text-align: end">UTILIZATION</td>
+        </tr>
+        <tr>
+          <td class="gray-text-color">
+            <div class="row">
+              <div class="col token-img">
+                <img
+                  src="public/images/coin-images/ic_eth_40.5e255508.svg"
+                  height="40px"
+                />
+              </div>
+              <div class="col token-title">
+                Ethereum <br />
+                <span class="gray-text-color" style="font-size: 13px">ETH</span>
+              </div>
+            </div>
+          </td>
+          <td class="gray-text-color">$1,760.37</td>
+          <td class="gray-text-color">$18</td>
+          <td class="gray-text-color">50.49% / 25.00%</td>
+          <td class="gray-text-color" style="text-align: end">0.00%</td>
+        </tr>
+        <tr>
+          <td class="gray-text-color">
+            <div class="row">
+              <div class="col token-img">
+                <img
+                  src="public/images/coin-images/ic_wbtc_40.8330ef8d.svg"
+                  height="40px"
+                />
+              </div>
+              <div class="col token-title">
+                Wrapped Bitcoin <br />
+                <span class="gray-text-color" style="font-size: 13px"
+                  >WBTC</span
+                >
+              </div>
+            </div>
+          </td>
+          <td class="gray-text-color">$33,614.97</td>
+          <td class="gray-text-color">$0</td>
+          <td class="gray-text-color">0.00% / 25.00%</td>
+          <td class="gray-text-color" style="text-align: end">0.00%</td>
+        </tr>
+        <tr>
+          <td class="gray-text-color">
+            <div class="row">
+              <div class="col token-img">
+                <img
+                  src="public/images/coin-images/ic_ape_40.53ac41f3.svg"
+                  height="40px"
+                />
+              </div>
+              <div class="col token-title">
+                ApeCoin <br />
+                <span class="gray-text-color" style="font-size: 13px">APE</span>
+              </div>
+            </div>
+          </td>
+          <td class="gray-text-color">$1.27</td>
+          <td class="gray-text-color">$0</td>
+          <td class="gray-text-color">0.00% / 25.00%</td>
+          <td class="gray-text-color" style="text-align: end">0.00%</td>
+        </tr>
+        <tr>
+          <td class="gray-text-color">
+            <div class="row">
+              <div class="col token-img">
+                <img
+                  src="public/images/coin-images/ic_usdc_40.27f415ba.svg"
+                  height="40px"
+                />
+              </div>
+              <div class="col token-title">
+                USD Coin <br />
+                <span class="gray-text-color" style="font-size: 13px"
+                  >USDC</span
+                >
+              </div>
+            </div>
+          </td>
+          <td class="gray-text-color">$1.00</td>
+          <td class="gray-text-color">$14</td>
+          <td class="gray-text-color">49.50% / 25.00%</td>
+          <td class="gray-text-color" style="text-align: end">0.00%</td>
+        </tr>
+      </table>
+    </div>
+
+    <!------------------------------------------------------------ footer ------------------------------------------------------------------------->
+    <footer>
+      <hr />
+      <div class="container-fluid text-center">
+        <div class="white-text">
+          <img src="public/images/New Logo.png" height="40px" alt="ROMI" />
+          <a href="#" class="logo">ROMI FINANCE</a>
+        </div>
+        <div class="social-media-div">
+          <span class="social-media-links"
+            ><a href="#"
+              ><img
+                class="social-media-img"
+                src="public/images/footer-images/ic_twitter.9f35b403.svg"
+                alt="" /></a
+          ></span>
+          <span class="social-media-links"
+            ><a href="#"
+              ><img
+                class="social-media-img"
+                src="public/images/footer-images/ic_medium.f6051b2e.svg"
+                alt="" /></a
+          ></span>
+          <span class="social-media-links"
+            ><a href="#"
+              ><img
+                class="social-media-img"
+                src="public/images/footer-images/ic_github.dbd4de8a.svg"
+                alt="" /></a
+          ></span>
+          <span class="social-media-links"
+            ><a href="#"
+              ><img
+                class="social-media-img"
+                src="public/images/footer-images/ic_telegram.af1a4a66.svg"
+                alt="" /></a
+          ></span>
+          <span class="social-media-links"
+            ><a href="#"
+              ><img
+                class="social-media-img"
+                src="public/images/footer-images/ic_discord.be4d716c.svg"
+                alt="" /></a
+          ></span>
+        </div>
+        <div class="row footer-links-div">
+          <div class="col-sm-4">
+            <span class="footer-links"
+              ><a href="#" class="footer-links">Terms and Conditions</a></span
+            >
+          </div>
+          <div class="col-sm-4">
+            <span class="footer-links"
+              ><a href="#" class="footer-links">Referral Terms</a></span
+            >
+          </div>
+          <div class="col-sm-4">
+            <span class="footer-links"
+              ><a href="#" class="footer-links">Media Kit</a></span
+            >
+          </div>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

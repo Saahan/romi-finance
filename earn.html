@@ -1,0 +1,753 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ROMI | Decentralized Perpetual Exchange</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+      crossorigin="anonymous"
+      defer
+    ></script>
+    <script
+      type="text/javascript"
+      src="public/scripts/tooltip.js"
+      defer
+    ></script>
+    <link rel="stylesheet" href="public/styles/earn_styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nova+Square&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <!------------------------------------------------------------ Modal -------------------------------------------------------------------------->
+    <div
+      class="modal fade"
+      id="exampleModal"
+      tabindex="-1"
+      aria-labelledby="exampleModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog" style="width: 300px">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="exampleModalLabel">
+              Connect Wallet
+            </h1>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body text-center">
+            <button
+              type="button"
+              class="btn btn-outline-secondary buttonmargin"
+              style="width: 100%; margin-bottom: 10px"
+            >
+              MetaMask</button
+            ><br />
+            <button
+              type="button"
+              class="btn btn-outline-secondary buttonmargin"
+              style="width: 100%; margin-bottom: 10px"
+            >
+              Coinbase Wallet</button
+            ><br />
+            <button
+              type="button"
+              class="btn btn-outline-secondary buttonmargin"
+              style="width: 100%; margin-bottom: 10px"
+            >
+              WalletConnect
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!------------------------------------------------------------ navbar header ------------------------------------------------------------------>
+    <header>
+      <div class="navdiv">
+        <nav class="navbar navbar-expand-lg bg-dark">
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-toggle="collapse"
+            data-target="#navbarNav"
+            aria-controls="navbarNav"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="container-fluid">
+            <div class="col">
+              <img src="public/images/New Logo.png" height="40px" alt="ROMI" />
+              <a href="#" class="logo">ROMI FINANCE</a>
+            </div>
+
+            <div class="col">
+              <!-- add collapse classes to list below to hide menu items -->
+              <ul class="navbar-nav collapse navbar-collapse">          
+                <div class="menudiv">
+                  <li class="nav-item">
+                    <a class="nav-link" aria-current="page" href="index.html"
+                      ><span class="gray-text-color">Home</span></a
+                    >
+                  </li>
+                </div>
+                <div class="menudiv">
+                  <li class="nav-item">
+                    <a class="nav-link" href="dashboard.html"
+                      ><span class="gray-text-color">Dashboard</span></a
+                    >
+                  </li>
+                </div>
+                <div class="menudiv">
+                  <li class="nav-item">
+                    <a class="nav-link" href="#"
+                      ><span class="gray-text-color">Earn</span></a
+                    >
+                  </li>
+                </div>
+              </ul>
+            </div>
+
+            <div class="row">
+              <div class="col">
+                <button class="btn btn-success customcolor buttonmargin">
+                  Trade
+                </button>
+                <button class="btn btn-outline-secondary buttonmargin">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="16"
+                    height="16"
+                    fill="white"
+                    class="bi bi-wallet"
+                    viewBox="0 0 16 16"
+                  >
+                    <path
+                      d="M0 3a2 2 0 0 1 2-2h13.5a.5.5 0 0 1 0 1H15v2a1 1 0 0 1 1 1v8.5a1.5 1.5 0 0 1-1.5 1.5h-12A2.5 2.5 0 0 1 0 12.5V3zm1 1.732V12.5A1.5 1.5 0 0 0 2.5 14h12a.5.5 0 0 0 .5-.5V5H2a1.99 1.99 0 0 1-1-.268zM1 3a1 1 0 0 0 1 1h12V2H2a1 1 0 0 0-1 1z"
+                    />
+                  </svg>
+                  <span class="white-text">Connect Wallet</span>
+                </button>
+                <div
+                  class="btn-group buttonmargin"
+                  role="group"
+                  aria-label="Basic example"
+                >
+                  <button type="button" class="btn btn-outline-secondary">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="16"
+                      height="16"
+                      fill="white"
+                      class="bi bi-compass-fill"
+                      viewBox="0 0 16 16"
+                    >
+                      <path
+                        d="M15.5 8.516a7.5 7.5 0 1 1-9.462-7.24A1 1 0 0 1 7 0h2a1 1 0 0 1 .962 1.276 7.503 7.503 0 0 1 5.538 7.24zm-3.61-3.905L6.94 7.439 4.11 12.39l4.95-2.828 2.828-4.95z"
+                      />
+                    </svg>
+                  </button>
+                  <button type="button" class="btn btn-outline-secondary">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="16"
+                      height="16"
+                      fill="white"
+                      class="bi bi-three-dots-vertical"
+                      viewBox="0 0 16 16"
+                    >
+                      <path
+                        d="M9.5 13a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z"
+                      />
+                    </svg>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </nav>
+      </div>
+    </header>
+    <!------------------------------------------------------------ Earn Page ---------------------------------------------------------------------->
+    <div class="container-md">
+      <div>
+        <h1 class="white-text">Earn</h1>
+      </div>
+      <div>
+        <p class="gray-text-color">Stake $ZOMI and $ZLP to earn rewards.</p>
+      </div>
+
+      <div class="row" style="margin-bottom: 20px">
+        <div class="col-lg-6 col-sm-12" style="margin-bottom: 20px">
+          <!------------------------------------------------------------ Earn Table1 -------------------------------------------------------------->
+          <div class="card" style="width: 100%">
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item">$ROMI</li>
+              <li class="list-group-item">
+                <div>
+                  <div class="row">
+                    <div class="col gray-text-color">Price</div>
+                    <div class="col text-end">
+                      <span
+                        data-bs-toggle="tooltip"
+                        data-bs-placement="bottom"
+                        data-bs-custom-class="custom-tooltip"
+                        data-bs-title="Price on Avalanche:
+                        $..."
+                        >$0.00</span
+                      >
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col gray-text-color">Wallet</div>
+                    <div class="col text-end">... $ZOMI ($...)</div>
+                  </div>
+                  <div class="row">
+                    <div class="col gray-text-color">Staked</div>
+                    <div class="col text-end">... $ZOMI ($...)</div>
+                  </div>
+                </div>
+              </li>
+              <li class="list-group-item">
+                <div>
+                  <div class="row">
+                    <div class="col gray-text-color">APR</div>
+                    <div class="col text-end">
+                      <span
+                        data-bs-toggle="tooltip"
+                        data-bs-placement="bottom"
+                        data-bs-custom-class="custom-tooltip"
+                        data-bs-title="Escrowed $ZOMI APR:
+                        ...%
+                        ETH APR:
+                        ...%
+                        
+                        APRs are updated weekly on Wednesday and will depend on the fees collected for the week."
+                        >...%</span
+                      >
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col gray-text-color">Rewards</div>
+                    <div class="col text-end">
+                      <span
+                        data-bs-toggle="tooltip"
+                        data-bs-placement="bottom"
+                        data-bs-custom-class="custom-tooltip"
+                        data-bs-title="ETH (WETH):
+                        ... ($...)
+                        Escrowed $ZOMI:
+                        ... ($...)"
+                        >$...</span
+                      >
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col gray-text-color">Multiplier Points APR</div>
+                    <div class="col text-end">
+                      <span
+                        data-bs-toggle="tooltip"
+                        data-bs-placement="bottom"
+                        data-bs-custom-class="custom-tooltip"
+                        data-bs-title="Boost your rewards with Multiplier Points. More info."
+                        >100.00%</span
+                      >
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col gray-text-color">Boost Percentage</div>
+                    <div class="col text-end">
+                      <span
+                        data-bs-toggle="tooltip"
+                        data-bs-placement="bottom"
+                        data-bs-custom-class="custom-tooltip"
+                        data-bs-title="You are earning ...% more ETH rewards using true Staked Multiplier Points.
+
+                        Use the Compound button to stake your Multiplier Points."
+                        >...%</span
+                      >
+                    </div>
+                  </div>
+                </div>
+              </li>
+              <li class="list-group-item">
+                <div>
+                  <div class="row">
+                    <div class="col gray-text-color">Total Staked</div>
+                    <div class="col text-end">0 $ZOMI ($...)</div>
+                  </div>
+                  <div class="row">
+                    <div class="col gray-text-color">Total Supply</div>
+                    <div class="col text-end">10,000 $ZOMI ($10)</div>
+                  </div>
+                </div>
+              </li>
+              <li class="list-group-item">
+                <div class="row">
+                  <div class="col">
+                    <button class="btn btn-success customcolor">
+                      Buy $ROMI
+                    </button>
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="col-lg-6 col-sm-12">
+          <!------------------------------------------------------------ Earn Table2 -------------------------------------------------------------->
+          <div class="card" style="width: 100%">
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item">Total Rewards</li>
+              <li class="list-group-item">
+                <div>
+                  <div class="row">
+                    <div class="col gray-text-color">ETH (WETH)</div>
+                    <div class="col text-end">
+                      <div class="col text-end">... ($...)</div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col gray-text-color">$ROMI</div>
+                    <div class="col text-end">... ($...)</div>
+                  </div>
+                  <div class="row">
+                    <div class="col gray-text-color">Escrowed $ROMI</div>
+                    <div class="col text-end">... ($...)</div>
+                  </div>
+                  <div class="row">
+                    <div class="col gray-text-color">Multiplier Points</div>
+                    <div class="col text-end">...</div>
+                  </div>
+                  <div class="row">
+                    <div class="col gray-text-color">
+                      Staked Multiplier Points
+                    </div>
+                    <div class="col text-end">...</div>
+                  </div>
+                  <div class="row bottom-margin-div">
+                    <div class="col gray-text-color">Total</div>
+                    <div class="col text-end">$...</div>
+                  </div>
+                </div>
+              </li>
+
+              <li class="list-group-item">
+                <div class="row">
+                  <div class="col">
+                    <button
+                      type="button"
+                      class="btn btn-success customcolor"
+                      data-bs-toggle="modal"
+                      data-bs-target="#exampleModal"
+                    >
+                      Connect Wallet
+                    </button>
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-lg-6 col-sm-12" style="margin-bottom: 20px">
+          <!------------------------------------------------------------ Earn Table3 -------------------------------------------------------------->
+          <div class="card" style="width: 100%">
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item">$ZLP (Ethereum)</li>
+              <li class="list-group-item">
+                <div>
+                  <div class="row">
+                    <div class="col gray-text-color">Price</div>
+                    <div class="col text-end">$...</div>
+                  </div>
+                  <div class="row">
+                    <div class="col gray-text-color">Wallet</div>
+                    <div class="col text-end">... $ZLP ($...)</div>
+                  </div>
+                  <div class="row">
+                    <div class="col gray-text-color">Staked</div>
+                    <div class="col text-end">... $ZLP ($...)</div>
+                  </div>
+                </div>
+              </li>
+              <li class="list-group-item">
+                <div>
+                  <div class="row">
+                    <div class="col gray-text-color">APR</div>
+                    <div class="col text-end">
+                      <span
+                        data-bs-toggle="tooltip"
+                        data-bs-placement="bottom"
+                        data-bs-custom-class="custom-tooltip"
+                        data-bs-title="ETH (WETH) APR:
+                        ...%
+                        Escrowed $ZOMI APR:
+                        ...%
+                        
+                        APRs are updated weekly on Wednesday and will depend on the fees collected for the week."
+                        >...%</span
+                      >
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col gray-text-color">Rewards</div>
+                    <div class="col text-end">
+                      <span
+                        data-bs-toggle="tooltip"
+                        data-bs-placement="bottom"
+                        data-bs-custom-class="custom-tooltip"
+                        data-bs-title="ETH (WETH):
+                        ... ($...)
+                        Escrowed $ZOMI:
+                        ... ($...)"
+                        >$...</span
+                      >
+                    </div>
+                  </div>
+                </div>
+              </li>
+              <li class="list-group-item">
+                <div>
+                  <div class="row">
+                    <div class="col gray-text-color">Total Staked</div>
+                    <div class="col text-end">... $ZLP ($...)</div>
+                  </div>
+                  <div class="row">
+                    <div class="col gray-text-color">Total Supply</div>
+                    <div class="col text-end">... $ZLP ($...)</div>
+                  </div>
+                </div>
+              </li>
+              <li class="list-group-item">
+                <div class="row">
+                  <div class="col">
+                    <button class="btn btn-success customcolor">
+                      Buy $ZLP
+                    </button>
+                    <button class="btn btn-success customcolor">
+                      Sell $ZLP
+                    </button>
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-lg-6 col-sm-12" style="margin-bottom: 20px">
+          <!------------------------------------------------------------ Earn Table4 -------------------------------------------------------------->
+          <div class="card" style="width: 100%">
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item">Escrowed $ROMI</li>
+              <li class="list-group-item">
+                <div>
+                  <div class="row">
+                    <div class="col gray-text-color">Price</div>
+                    <div class="col text-end">$0.00</div>
+                  </div>
+                  <div class="row">
+                    <div class="col gray-text-color">Wallet</div>
+                    <div class="col text-end">... esROMI ($...)</div>
+                  </div>
+                  <div class="row">
+                    <div class="col gray-text-color">Staked</div>
+                    <div class="col text-end">... esROMI ($...)</div>
+                  </div>
+                </div>
+              </li>
+              <li class="list-group-item">
+                <div>
+                  <div class="row">
+                    <div class="col gray-text-color">APR</div>
+                    <div class="col text-end">
+                      <span
+                        data-bs-toggle="tooltip"
+                        data-bs-placement="bottom"
+                        data-bs-custom-class="custom-tooltip"
+                        data-bs-title="ETH (WETH) Base APR:
+                        ...%
+                        Escrowed $ZOMI APR:
+                        ...%"
+                        >...%</span
+                      >
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col gray-text-color">Multiplier Points APR</div>
+                    <div class="col text-end">
+                      <span
+                        data-bs-toggle="tooltip"
+                        data-bs-placement="bottom"
+                        data-bs-custom-class="custom-tooltip"
+                        data-bs-title="Boost your rewards with Multiplier Points. More info."
+                        >100.00%</span
+                      >
+                    </div>
+                  </div>
+                </div>
+              </li>
+              <li class="list-group-item">
+                <div>
+                  <div class="row">
+                    <div class="col gray-text-color">Total Staked</div>
+                    <div class="col text-end">... esROMI ($...)</div>
+                  </div>
+                  <div class="row">
+                    <div class="col gray-text-color">Total Supply</div>
+                    <div class="col text-end">1,023,379 esROMI ($1,054)</div>
+                  </div>
+                </div>
+              </li>
+              <li class="list-group-item">
+                <div class="row">
+                  <div class="col">
+                    <button
+                      type="button"
+                      class="btn btn-success customcolor"
+                      data-bs-toggle="modal"
+                      data-bs-target="#exampleModal"
+                    >
+                      Connect Wallet
+                    </button>
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!------------------------------------------------------------ Vest Section ------------------------------------------------------------------->
+    <div class="container-md">
+      <div>
+        <h1 class="white-text">Vest</h1>
+      </div>
+      <div>
+        <p class="gray-text-color">
+          Convert esZOMI tokens to $ZOMI tokens. <br />
+          Please read the vesting details before using the vaults.
+        </p>
+      </div>
+      <div class="row">
+        <div class="col-lg-6 col-sm-12" style="margin-bottom: 20px">
+          <!------------------------------------------------------------ Earn TableV1 -------------------------------------------------------------->
+          <div class="card" style="width: 100%">
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item">$ROMI Vault</li>
+              <li class="list-group-item">
+                <div>
+                  <div class="row">
+                    <div class="col gray-text-color">Staked Tokens</div>
+                    <div class="col text-end">
+                      <span
+                        data-bs-toggle="tooltip"
+                        data-bs-placement="bottom"
+                        data-bs-custom-class="custom-tooltip"
+                        data-bs-title="$ZOMI:
+                        ...
+                        esZOMI:
+                        ...
+                        Multiplier Points:
+                        ..."
+                        >...</span
+                      >
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col gray-text-color">Reserved for Vesting</div>
+                    <div class="col text-end">0.00 / ...</div>
+                  </div>
+                  <div class="row">
+                    <div class="col gray-text-color">Vesting Status</div>
+                    <div class="col text-end">
+                      <span
+                        data-bs-toggle="tooltip"
+                        data-bs-placement="bottom"
+                        data-bs-custom-class="custom-tooltip"
+                        data-bs-title="0.0000 tokens have been converted to $ZOMI from the 0.0000 esZOMI deposited for vesting."
+                        >0.0000 / 0.0000</span
+                      >
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col gray-text-color">Claimable</div>
+                    <div class="col text-end">
+                      <span
+                        data-bs-toggle="tooltip"
+                        data-bs-placement="bottom"
+                        data-bs-custom-class="custom-tooltip"
+                        data-bs-title="0.0000 $ZOMI tokens can be claimed, use the options under the Total Rewards section to claim them."
+                        >0.0000 $ZOMI</span
+                      >
+                    </div>
+                  </div>
+                </div>
+              </li>
+
+              <li class="list-group-item">
+                <div class="row">
+                  <div class="col">
+                    <button
+                      type="button"
+                      class="btn btn-success customcolor"
+                      data-bs-toggle="modal"
+                      data-bs-target="#exampleModal"
+                    >
+                      Connect Wallet
+                    </button>
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="col-lg-6 col-sm-12" style="margin-bottom: 20px">
+          <!------------------------------------------------------------ Earn TableV2 -------------------------------------------------------------->
+          <div class="card" style="width: 100%">
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item">$ZLP Vault</li>
+              <li class="list-group-item">
+                <div>
+                  <div class="row">
+                    <div class="col gray-text-color">Staked Tokens</div>
+                    <div class="col text-end">... $ZLP</div>
+                  </div>
+                  <div class="row">
+                    <div class="col gray-text-color">Reserved for Vesting</div>
+                    <div class="col text-end">0.00 / ...</div>
+                  </div>
+                  <div class="row">
+                    <div class="col gray-text-color">Vesting Status</div>
+                    <div class="col text-end">
+                      <span
+                        data-bs-toggle="tooltip"
+                        data-bs-placement="bottom"
+                        data-bs-custom-class="custom-tooltip"
+                        data-bs-title="0.0000 tokens have been converted to $ZOMI from the 0.0000 esZOMI deposited for vesting."
+                        >0.0000 / 0.0000</span
+                      >
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col gray-text-color">Claimable</div>
+                    <div class="col text-end">
+                      <span
+                        data-bs-toggle="tooltip"
+                        data-bs-placement="bottom"
+                        data-bs-custom-class="custom-tooltip"
+                        data-bs-title="0.0000 tokens have been converted to $ZOMI from the 0.0000 esZOMI deposited for vesting."
+                        >0.0000 $ROMI</span
+                      >
+                    </div>
+                  </div>
+                </div>
+              </li>
+
+              <li class="list-group-item">
+                <div class="row">
+                  <div class="col">
+                    <button
+                      type="button"
+                      class="btn btn-success customcolor"
+                      data-bs-toggle="modal"
+                      data-bs-target="#exampleModal"
+                    >
+                      Connect Wallet
+                    </button>
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!------------------------------------------------------------ footer ------------------------------------------------------------------------->
+    <footer>
+      <hr />
+      <div class="container-fluid text-center">
+        <div class="white-text">
+          <img src="public/images/New Logo.png" height="40px" alt="ROMI" />
+          <a href="#" class="logo">ROMI FINANCE</a>
+        </div>
+        <div class="social-media-div">
+          <span class="social-media-links"
+            ><a href="#"
+              ><img
+                class="social-media-img"
+                src="public/images/footer-images/ic_twitter.9f35b403.svg"
+                alt="" /></a
+          ></span>
+          <span class="social-media-links"
+            ><a href="#"
+              ><img
+                class="social-media-img"
+                src="public/images/footer-images/ic_medium.f6051b2e.svg"
+                alt="" /></a
+          ></span>
+          <span class="social-media-links"
+            ><a href="#"
+              ><img
+                class="social-media-img"
+                src="public/images/footer-images/ic_github.dbd4de8a.svg"
+                alt="" /></a
+          ></span>
+          <span class="social-media-links"
+            ><a href="#"
+              ><img
+                class="social-media-img"
+                src="public/images/footer-images/ic_telegram.af1a4a66.svg"
+                alt="" /></a
+          ></span>
+          <span class="social-media-links"
+            ><a href="#"
+              ><img
+                class="social-media-img"
+                src="public/images/footer-images/ic_discord.be4d716c.svg"
+                alt="" /></a
+          ></span>
+        </div>
+        <div class="row footer-links-div">
+          <div class="col-sm-4">
+            <span class="footer-links"
+              ><a href="#" class="footer-links">Terms and Conditions</a></span
+            >
+          </div>
+          <div class="col-sm-4">
+            <span class="footer-links"
+              ><a href="#" class="footer-links">Referral Terms</a></span
+            >
+          </div>
+          <div class="col-sm-4">
+            <span class="footer-links"
+              ><a href="#" class="footer-links">Media Kit</a></span
+            >
+          </div>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
