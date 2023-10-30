@@ -42,6 +42,11 @@ hr {
 
 /* Navbar Styles */
 
+.offcanvas {
+  background-color: #151515;
+  width: 60% !important;
+}
+
 .navbar {
   background-color: #191919 !important;
   padding-top: 10px;
@@ -50,11 +55,8 @@ hr {
   box-shadow: 2px 2px 20px rgb(17, 17, 17);
 }
 
-.logo {
-  font-family: "Nova Square", sans-serif;
-  color: white;
-  text-decoration: none;
-  font-size: 18px;
+.small-logo {
+  display: none;
 }
 
 .menudiv {
@@ -161,5 +163,24 @@ footer {
   .footer-links-div {
     margin: 0px 100px 0px 100px;
   }
-}
 
+  .logo {
+    display: none;
+  }
+
+  .buttonmargin {
+    margin: 0px;
+  }
+
+  .navbar-button {
+    width: 80px;
+  }
+
+  .small-logo {
+    display: block;
+  }
+
+  .connect-wallet {
+    display:none;
+  }
+}

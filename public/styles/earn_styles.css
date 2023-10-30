@@ -42,6 +42,11 @@ hr {
 
 /* Navbar Styles */
 
+.offcanvas {
+  background-color: #151515;
+  width: 60% !important;
+}
+
 .navbar {
   background-color: #191919 !important;
   padding-top: 10px;
@@ -50,7 +55,11 @@ hr {
   box-shadow: 2px 2px 20px rgb(17, 17, 17);
 }
 
-.logo {
+.small-logo {
+  display: none;
+}
+
+.logo-offcanvas {
   font-family: "Nova Square", sans-serif;
   color: white;
   text-decoration: none;
@@ -68,7 +77,7 @@ hr {
 /* Earn Page Tables Styles */
 
 .bottom-margin-div {
-  margin-bottom: 106px
+  margin-bottom: 106px;
 }
 
 .custom-tooltip {
@@ -123,5 +132,25 @@ footer {
 
   .bottom-margin-div {
     margin-bottom: 0px;
+  }
+
+  .logo {
+    display: none;
+  }
+
+  .buttonmargin {
+    margin: 0px;
+  }
+
+  .navbar-button {
+    width: 80px;
+  }
+
+  .small-logo {
+    display: inline;
+  }
+
+  .connect-wallet {
+    display: none;
   }
 }

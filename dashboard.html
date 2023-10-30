@@ -34,18 +34,82 @@
     />
   </head>
   <body>
+    <!------------------------------------------------------------ OffCanvas ---------------------------------------------------------------------->
+    <div
+      class="offcanvas offcanvas-start"
+      tabindex="-1"
+      id="offcanvasExample"
+      aria-labelledby="offcanvasExampleLabel"
+    >
+      <div class="offcanvas-header">
+        <img src="public/images/New Logo.png" height="40px" alt="ROMI" />
+        <img src="public/images/romi_logo.png" height="20px" alt="ROMI" />
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="offcanvas"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="offcanvas-body">
+        <div class="text-center">
+          <a class="nav-link" aria-current="page" href="index.html"
+            ><span class="gray-text-color">Home</span></a
+          >
+          <a class="nav-link" aria-current="page" href="dashboard.html"
+            ><span class="gray-text-color">Dashboard</span></a
+          >
+          <a class="nav-link" aria-current="page" href="earn.html"
+            ><span class="gray-text-color">Earn</span></a
+          >
+        </div>
+      </div>
+    </div>
+
     <!------------------------------------------------------------ navbar header ------------------------------------------------------------------>
     <header>
       <div class="navdiv">
         <nav class="navbar navbar-expand-lg bg-dark">
           <div class="container-fluid">
-            <div class="col">
+            <button
+              class="navbar-toggler"
+              type="button"
+              data-bs-toggle="offcanvas"
+              data-bs-target="#offcanvasExample"
+              aria-controls="navbarNav"
+              aria-expanded="false"
+              aria-label="Toggle navigation"
+            >
+              <span
+                ><svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="20"
+                  height="20"
+                  fill="white"
+                  class="bi bi-list"
+                  viewBox="0 0 16 16"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"
+                  />
+                </svg>
+              </span>
+            </button>
+            <div class="col logo">
               <img src="public/images/New Logo.png" height="40px" alt="ROMI" />
-              <a href="#" class="logo">ROMI FINANCE</a>
+              <img src="public/images/romi_logo.png" height="20px" alt="ROMI" />
+            </div>
+            <div class="small-logo">
+              <img
+                src="public/images/romi_together.png"
+                height="25px"
+                alt="ROMI"
+              />
             </div>
 
             <div class="col">
-              <ul class="navbar-nav">
+              <ul class="navbar-nav collapse navbar-collapse">
                 <div class="menudiv">
                   <li class="nav-item">
                     <a class="nav-link" aria-current="page" href="index.html"
@@ -75,7 +139,9 @@
                 <button class="btn btn-success customcolor buttonmargin">
                   Trade
                 </button>
-                <button class="btn btn-outline-secondary buttonmargin">
+                <button
+                  class="btn btn-outline-secondary buttonmargin navbar-button"
+                >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="16"
@@ -88,7 +154,7 @@
                       d="M0 3a2 2 0 0 1 2-2h13.5a.5.5 0 0 1 0 1H15v2a1 1 0 0 1 1 1v8.5a1.5 1.5 0 0 1-1.5 1.5h-12A2.5 2.5 0 0 1 0 12.5V3zm1 1.732V12.5A1.5 1.5 0 0 0 2.5 14h12a.5.5 0 0 0 .5-.5V5H2a1.99 1.99 0 0 1-1-.268zM1 3a1 1 0 0 0 1 1h12V2H2a1 1 0 0 0-1 1z"
                     />
                   </svg>
-                  <span class="white-text">Connect Wallet</span>
+                  <span class="white-text connect-wallet">Connect Wallet</span>
                 </button>
                 <div
                   class="btn-group buttonmargin"
@@ -143,7 +209,7 @@
       </div>
       <div class="row">
         <!------------------------------------------------------------ table1 ----------------------------------------------------------------------->
-        <div class="col-lg-6 col-sm-12">
+        <div class="col-lg-6 col-sm-12" style="margin-bottom: 20px">
           <table class="dashboard-table" width="100%">
             <th class="white-text">Overview</th>
             <th></th>
@@ -258,15 +324,12 @@
       </div>
       <div class="row">
         <!------------------------------------------------------------ table1 ----------------------------------------------------------------------->
-        <div class="col-lg-6 col-sm-12">
+        <div class="col-lg-6 col-sm-12" style="margin-bottom: 20px">
           <table class="dashboard-table" width="100%">
             <th class="white-text">
               <div class="row">
-                <div class="col token-img">
-                  <img
-                    src="public/images/romi.png"
-                    height="40px"
-                  />
+                <div class="col">
+                  <img src="public/images/romi.png" height="40px" />
                 </div>
                 <div class="col token-title" style="display: inline">
                   $ROMI <br />
@@ -277,7 +340,7 @@
               </div>
             </th>
             <th></th>
-            <td rowspan="6"><div id="piechart"></div></td>
+            <td class="chart" rowspan="6"><div id="piechart"></div></td>
             <tr>
               <td class="gray-text-color table-element">Price</td>
               <td
@@ -323,6 +386,9 @@
                 &nbsp
               </td>
             </tr>
+            <tr>
+              <td><div id="piechart-small" style="float: right"></div></td>
+            </tr>
           </table>
         </div>
         <!------------------------------------------------------------ table2 --------------------------------------------------------------------->
@@ -330,11 +396,8 @@
           <table class="dashboard-table" width="100%">
             <th class="white-text">
               <div class="row">
-                <div class="col token-img">
-                  <img
-                    src="public/images/zlp.png"
-                    height="40px"
-                  />
+                <div class="col">
+                  <img src="public/images/zlp.png" height="40px" />
                 </div>
                 <div class="col token-title">
                   $ZLP <br />
@@ -345,7 +408,7 @@
               </div>
             </th>
             <th></th>
-            <td rowspan="6"><div id="piechart2"></div></td>
+            <td class="chart" rowspan="6"><div id="piechart2"></div></td>
             <tr>
               <td class="gray-text-color table-element">Price</td>
               <td
@@ -393,12 +456,15 @@
                 49.50%
               </td>
             </tr>
+            <tr>
+              <td><div id="piechart-small2" style="float: right"></div></td>
+            </tr>
           </table>
         </div>
       </div>
     </div>
     <!------------------------------------------------------------ token details ------------------------------------------------------------------>
-    <div class="container-md">
+    <div class="container-md td-table">
       <table class="token-details-table" width="100%">
         <tr>
           <th class="white-text">$ZLP Index Composition</th>
@@ -500,6 +566,149 @@
         </tr>
       </table>
     </div>
+    <!------------------------------------------------------------ token details small ------------------------------------------------------------>
+    <div class="container-md token-details-small">
+      <div class="col-12" style="margin-bottom: 20px">
+        <div class="card" style="width: 100%">
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item">
+              <img
+                src="public/images/coin-images/ic_eth_40.5e255508.svg"
+                height="20px"
+              />
+              &nbsp ETH
+            </li>
+            <li class="list-group-item">
+              <div>
+                <div class="row">
+                  <div class="col gray-text-color">Price</div>
+                  <div class="col text-end">$1,807.85</div>
+                </div>
+                <div class="row">
+                  <div class="col gray-text-color">Pool</div>
+                  <div class="col text-end">$19</div>
+                </div>
+                <div class="row">
+                  <div class="col gray-text-color">Weight</div>
+                  <div class="col text-end">50.49% / 25.00%</div>
+                </div>
+                <div class="row">
+                  <div class="col gray-text-color">Utilization</div>
+                  <div class="col text-end">0.00%</div>
+                </div>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div>
+        <div class="col-12" style="margin-bottom: 20px">
+          <div class="card" style="width: 100%">
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item">
+                <img
+                  src="public/images/coin-images/ic_wbtc_40.8330ef8d.svg"
+                  height="20px"
+                />
+                &nbsp WBTC
+              </li>
+              <li class="list-group-item">
+                <div>
+                  <div class="row">
+                    <div class="col gray-text-color">Price</div>
+                    <div class="col text-end">$34,580.00</div>
+                  </div>
+                  <div class="row">
+                    <div class="col gray-text-color">Pool</div>
+                    <div class="col text-end">$0</div>
+                  </div>
+                  <div class="row">
+                    <div class="col gray-text-color">Weight</div>
+                    <div class="col text-end">0.00% / 25.00%</div>
+                  </div>
+                  <div class="row">
+                    <div class="col gray-text-color">Utilization</div>
+                    <div class="col text-end">0.00%</div>
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <div class="col-12" style="margin-bottom: 20px">
+          <div class="card" style="width: 100%">
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item">
+                <img
+                  src="public/images/coin-images/ic_ape_40.53ac41f3.svg"
+                  height="20px"
+                />
+                &nbsp APE
+              </li>
+              <li class="list-group-item">
+                <div>
+                  <div class="row">
+                    <div class="col gray-text-color">Price</div>
+                    <div class="col text-end">$1.37</div>
+                  </div>
+                  <div class="row">
+                    <div class="col gray-text-color">Pool</div>
+                    <div class="col text-end">$0</div>
+                  </div>
+                  <div class="row">
+                    <div class="col gray-text-color">Weight</div>
+                    <div class="col text-end">0.00% / 25.00%</div>
+                  </div>
+                  <div class="row">
+                    <div class="col gray-text-color">Utilization</div>
+                    <div class="col text-end">0.00%</div>
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div class="col-12" style="margin-bottom: 20px">
+          <div class="card" style="width: 100%">
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item">
+                <img
+                  src="public/images/coin-images/ic_usdc_40.27f415ba.svg"
+                  height="20px"
+                />
+                &nbsp USDC
+              </li>
+              <li class="list-group-item">
+                <div>
+                  <div class="row">
+                    <div class="col gray-text-color">Price</div>
+                    <div class="col text-end">$1.00</div>
+                  </div>
+                  <div class="row">
+                    <div class="col gray-text-color">Pool</div>
+                    <div class="col text-end">$14</div>
+                  </div>
+                  <div class="row">
+                    <div class="col gray-text-color">Weight</div>
+                    <div class="col text-end">49.50% / 25.00%</div>
+                  </div>
+                  <div class="row">
+                    <div class="col gray-text-color">Utilization</div>
+                    <div class="col text-end">0.00%</div>
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
 
     <!------------------------------------------------------------ footer ------------------------------------------------------------------------->
     <footer>
@@ -507,7 +716,7 @@
       <div class="container-fluid text-center">
         <div class="white-text">
           <img src="public/images/New Logo.png" height="40px" alt="ROMI" />
-          <a href="#" class="logo">ROMI FINANCE</a>
+          <img src="public/images/romi_logo.png" height="20px" alt="ROMI" />
         </div>
         <div class="social-media-div">
           <span class="social-media-links"

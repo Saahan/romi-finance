@@ -25,18 +25,81 @@
     />
   </head>
   <body>
+    <!------------------------------------------------------------ OffCanvas ---------------------------------------------------------------------->
+    <div
+      class="offcanvas offcanvas-start"
+      tabindex="-1"
+      id="offcanvasExample"
+      aria-labelledby="offcanvasExampleLabel"
+    >
+      <div class="offcanvas-header">
+        <img src="public/images/New Logo.png" height="40px" alt="ROMI" />
+        <img src="public/images/romi_logo.png" height="20px" alt="ROMI" />
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="offcanvas"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="offcanvas-body">
+        <div class="text-center">
+          <a class="nav-link" aria-current="page" href="index.html"
+            ><span class="gray-text-color">Home</span></a
+          >
+          <a class="nav-link" aria-current="page" href="dashboard.html"
+            ><span class="gray-text-color">Dashboard</span></a
+          >
+          <a class="nav-link" aria-current="page" href="earn.html"
+            ><span class="gray-text-color">Earn</span></a
+          >
+        </div>
+      </div>
+    </div>
     <!------------------------------------------------------------ navbar header ------------------------------------------------------------------>
     <header>
       <div class="navdiv">
         <nav class="navbar navbar-expand-lg bg-dark">
           <div class="container-fluid">
-            <div class="col">
+            <button
+              class="navbar-toggler"
+              type="button"
+              data-bs-toggle="offcanvas"
+              data-bs-target="#offcanvasExample"
+              aria-controls="navbarNav"
+              aria-expanded="false"
+              aria-label="Toggle navigation"
+            >
+              <span>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="20"
+                  height="20"
+                  fill="white"
+                  class="bi bi-list"
+                  viewBox="0 0 16 16"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"
+                  />
+                </svg>
+              </span>
+            </button>
+            <div class="col logo">
               <img src="public/images/New Logo.png" height="40px" alt="ROMI" />
-              <a href="#" class="logo">ROMI FINANCE</a>
+              <img src="public/images/romi_logo.png" height="20px" alt="ROMI" />
+            </div>
+            <div class="small-logo">
+              <img
+                src="public/images/romi_together.png"
+                height="25px"
+                alt="ROMI"
+              />
             </div>
 
             <div class="col">
-              <ul class="navbar-nav">
+              <ul class="navbar-nav collapse navbar-collapse">
                 <div class="menudiv">
                   <li class="nav-item">
                     <a class="nav-link" aria-current="page" href="#"
@@ -66,7 +129,9 @@
                 <button class="btn btn-success customcolor buttonmargin">
                   Trade
                 </button>
-                <button class="btn btn-outline-secondary buttonmargin">
+                <button
+                  class="btn btn-outline-secondary buttonmargin navbar-button"
+                >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="16"
@@ -79,7 +144,7 @@
                       d="M0 3a2 2 0 0 1 2-2h13.5a.5.5 0 0 1 0 1H15v2a1 1 0 0 1 1 1v8.5a1.5 1.5 0 0 1-1.5 1.5h-12A2.5 2.5 0 0 1 0 12.5V3zm1 1.732V12.5A1.5 1.5 0 0 0 2.5 14h12a.5.5 0 0 0 .5-.5V5H2a1.99 1.99 0 0 1-1-.268zM1 3a1 1 0 0 0 1 1h12V2H2a1 1 0 0 0-1 1z"
                     />
                   </svg>
-                  <span class="white-text">Connect Wallet</span>
+                  <span class="white-text connect-wallet">Connect Wallet</span>
                 </button>
                 <div
                   class="btn-group buttonmargin"
@@ -354,36 +419,41 @@
       <div class="container-fluid text-center">
         <div class="white-text">
           <img src="public/images/New Logo.png" height="40px" alt="ROMI" />
-          <a href="#" class="logo">ROMI FINANCE</a>
+          <img src="public/images/romi_logo.png" height="20px" alt="ROMI" />
         </div>
         <div class="social-media-div">
           <span class="social-media-links"
             ><a href="#"
-              ><img class="social-media-img"
+              ><img
+                class="social-media-img"
                 src="public/images/footer-images/ic_twitter.9f35b403.svg"
                 alt="" /></a
           ></span>
           <span class="social-media-links"
-            ><a href="#" 
-              ><img class="social-media-img"
+            ><a href="#"
+              ><img
+                class="social-media-img"
                 src="public/images/footer-images/ic_medium.f6051b2e.svg"
                 alt="" /></a
           ></span>
           <span class="social-media-links"
             ><a href="#"
-              ><img class="social-media-img"
+              ><img
+                class="social-media-img"
                 src="public/images/footer-images/ic_github.dbd4de8a.svg"
                 alt="" /></a
           ></span>
           <span class="social-media-links"
             ><a href="#"
-              ><img class="social-media-img"
+              ><img
+                class="social-media-img"
                 src="public/images/footer-images/ic_telegram.af1a4a66.svg"
                 alt="" /></a
           ></span>
           <span class="social-media-links"
             ><a href="#"
-              ><img class="social-media-img"
+              ><img
+                class="social-media-img"
                 src="public/images/footer-images/ic_discord.be4d716c.svg"
                 alt="" /></a
           ></span>

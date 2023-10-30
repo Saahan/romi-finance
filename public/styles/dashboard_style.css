@@ -42,6 +42,11 @@ hr {
 
 /* Navbar Styles */
 
+.offcanvas {
+  background-color: #151515;
+  width: 60% !important;
+}
+
 .navbar {
   background-color: #191919 !important;
   padding-top: 10px;
@@ -50,11 +55,8 @@ hr {
   box-shadow: 2px 2px 20px rgb(17, 17, 17);
 }
 
-.logo {
-  font-family: "Nova Square", sans-serif;
-  color: white;
-  text-decoration: none;
-  font-size: 18px;
+.small-logo {
+  display: none;
 }
 
 .menudiv {
@@ -101,6 +103,29 @@ th {
   box-shadow: 2px 2px 20px rgb(17, 17, 17);
 }
 
+#piechart-small {
+  display: none;
+}
+
+#piechart-small2 {
+  display: none;
+}
+
+.token-img {
+  margin-right: -17rem !important;
+  margin-left: 0.5rem;
+}
+
+.list-group .list-group-item {
+  background-color: #151515 !important;
+  color: white;
+  border: 1px solid rgba(117, 117, 118, 0.51);
+}
+
+.token-details-small {
+  display: none;
+}
+
 /* Footer Styles */
 
 .social-media-div {
@@ -144,5 +169,45 @@ footer {
     padding-right: 120px;
     white-space: nowrap;
     overflow: hidden;
+  }
+
+  .logo {
+    display: none;
+  }
+
+  .buttonmargin {
+    margin: 0px;
+  }
+
+  .navbar-button {
+    width: 80px;
+  }
+
+  .small-logo {
+    display: block;
+  }
+
+  .connect-wallet {
+    display: none;
+  }
+
+  .chart {
+    display: none;
+  }
+
+  #piechart-small {
+    display: block;
+  }
+
+  #piechart-small2 {
+    display: block;
+  }
+
+  .td-table {
+    display: none;
+  }
+
+  .token-details-small {
+    display: block;
   }
 }
